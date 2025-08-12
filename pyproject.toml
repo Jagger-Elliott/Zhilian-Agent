@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "flask>=3.1.1",
     "pyttsx3>=2.99",
     "qwen-agent[code-interpreter,gui,mcp,rag]>=0.0.29",
 ]
