@@ -6,8 +6,7 @@ sys.path.append(base_dir)
 from agents import ReActAgent
 from qwen_agent.gui import WebUI
 from recognition import parse
-from planner import TaskDecomposer
-from tools import MyImageGen, PhoneCallHandler, TextToSpeech
+from tools import MyImageGen, HotSearch, TextToSpeech
 
 ROOT_RESOURCE = os.path.join(os.path.dirname(__file__), 'resource')
 
@@ -22,6 +21,7 @@ def init_agent_service():
     tools = [
         # TaskDecomposer(),
         MyImageGen(),
+        HotSearch()
         # TextToSpeech(),
         # PhoneCallHandler(),
     ]
