@@ -5,7 +5,7 @@ from qwen_agent.tools import BaseTool
 
 class HotSearch(BaseTool):
     """"""
-    name = 'hot_seaerch'
+    name = 'hot_search'
     description = '微博热搜前n条'
     parameters = [{
         'name': 'topK',
