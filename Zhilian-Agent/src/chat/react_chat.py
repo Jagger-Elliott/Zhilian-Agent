@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, json
 from pprint import pprint
 from typing import Optional
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -10,7 +10,7 @@ from tools import MyImageGen, HotSearch, TextToSpeech
 
 ROOT_RESOURCE = os.path.join(os.path.dirname(__file__), 'resource')
 
-os.environ['DASHSCOPE_API_KEY'] = 'sk-45d286a145b7486d940d9c1e90d4061d'
+os.environ['DASHSCOPE_API_KEY'] = 'sk-a7ea0779ee0944f28e9473550f791425'
 os.environ['GRADIO_SERVER_PORT'] = '12000'
 def init_agent_service():
     llm_cfg = {
@@ -18,13 +18,25 @@ def init_agent_service():
         'model_server': 'dashscope',
         'api_key': os.getenv('DASHSCOPE_API_KEY'),
     }
-    tools = [
-        # TaskDecomposer(),
-        MyImageGen(),
-        HotSearch()
-        # TextToSpeech(),
-        # PhoneCallHandler(),
-    ]
+    # tools = [
+    #     # TaskDecomposer(),
+    #     # MyImageGen(),
+    #     # HotSearch()
+    #     # TextToSpeech(),
+    #     # PhoneCallHandler(),
+    # ]
+
+    # 获取配置文件路径
+    CONFIG_PATH = os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__)), "mcp"), "mcp_server.json")
+
+    # 加载 mcpServers 配置
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        mcp_servers_config = json.load(f)
+
+    tools = [{
+        "mcpServers": mcp_servers_config
+        }]
+    
     bot = ReActAgent(llm=llm_cfg,
                     name='general agent',
                     description='This agent can solve the problem',

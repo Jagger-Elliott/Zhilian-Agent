@@ -1,0 +1,15 @@
+{
+    "twitter-mcp": {
+        "command": "npx",
+        "args": [
+            "-y",
+            "@enescinar/twitter-mcp"
+        ],
+        "env": {
+            "API_KEY": "YeldDrq2gsPf8enrxufr1jxsW",
+            "API_SECRET_KEY": "hgKeaXLnwuQdsVTNNpRhnvcuL6VZIRxb1eO2a0hdnPJot1Md8l",
+            "ACCESS_TOKEN": "1633291221849477120-hjC0aMoGvRHjVhJdjIWxf9Vy1xbq2U",
+            "ACCESS_TOKEN_SECRET": "q13E0BvS6Q5BI5C2QZC57ZmNwo0Q1xDRY7WPoviQAd309"
+        }
+    }
+}

@@ -10,4 +10,5 @@ dependencies = [
     "pyttsx3>=2.99",
     "qwen-agent[code-interpreter,gui,mcp,rag]>=0.0.29",
     "requests>=2.32.4",
+    "x-twitter-mcp>=0.1.11",
 ]
